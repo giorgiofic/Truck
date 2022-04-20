@@ -19,7 +19,7 @@ namespace Truck.Application.Services
             _truckRepository = truckRepository;
         }
 
-        public async Task<IEnumerable<Domain.Models.Truck>> Get(Domain.Models.Truck obj)
+        public async Task<IEnumerable<Domain.Models.Truck>> Get()
         {
             IEnumerable<Domain.Models.Truck> list = await _truckRepository.Get();
             return list;
