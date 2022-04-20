@@ -11,3 +11,5 @@ Usuário poderá fazer no cadastro de caminhão:
 * ALterar;
 * Excluir;
 * Listar; 
+
+Obs.: Ao executar, o sistema já cria o banco de dados e faz o seed.
