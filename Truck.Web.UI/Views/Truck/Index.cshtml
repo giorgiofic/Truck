@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Truck List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <form method="get" asp-action="Get" asp-anti-forgery="true" data-ajax="true" data-ajax-update="#resultList" data-ajax-loading="#divloading">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+                <a asp-area="" asp-controller="Truck" asp-action="Create">Create New</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@await Html.PartialAsync("_Alert")
+
+<div id="resultList"></div>

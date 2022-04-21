@@ -117,17 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="msgAnoFabricacaoDeveSerAnoAtual" xml:space="preserve">
-    <value>Ano Fabricação deve ser ano atual</value>
-  </data>
-  <data name="msgAnoModeloDeveSerAnoAtualOuSubSequente" xml:space="preserve">
-    <value>Ano Modelo deve ser ano atual ou subSequente</value>
+  <data name="msgFabricationYear" xml:space="preserve">
+    <value>Fabrication Year should be current year</value>
   </data>
   <data name="msgListEmpty" xml:space="preserve">
     <value>The list is empty!</value>
   </data>
-  <data name="msgModeloDeveSerFHouFM" xml:space="preserve">
-    <value>Modelo deve der "FH" ou "FM"</value>
+  <data name="msgModel" xml:space="preserve">
+    <value>Model should be "FH" or "FM"</value>
+  </data>
+  <data name="msgModelYear" xml:space="preserve">
+    <value>Model Year should be current year or subsequent</value>
   </data>
   <data name="msgRegisterAlreadyExist" xml:space="preserve">
     <value>Register already Exist!</value>

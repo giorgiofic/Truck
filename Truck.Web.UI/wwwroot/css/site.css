@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.form-group.required .control-label:after {
+    content: " *";
+    color: red;
+}

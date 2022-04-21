@@ -11,7 +11,7 @@ using Truck.Data.Context;
 namespace Truck.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220420204635_Version0001")]
+    [Migration("20220421200703_Version0001")]
     partial class Version0001
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -16,15 +16,19 @@ namespace Truck.Domain.Models
         public string? Description { get; set; }
 
         [Required]
+        [Display(Name = "Model")]
         public int IdModel { get; set; }
 
         [Required]
+        [Display(Name ="Year Fabrication")]
         public int YearFabrication { get; set; }
 
         [Required]
+        [Display(Name = "Year Model")]
+        [Range(2000, 9999, ErrorMessage = "Year invalid")]
         public int YearModel { get; set; }
 
         //Fk
-        public virtual ModelTruck ModelTruck { get; set; }
+        public virtual ModelTruck? ModelTruck { get; set; }
     }
 }

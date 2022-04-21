@@ -33,14 +33,14 @@ namespace Truck.Application.Services
 
         public async Task<(Return status, string description)> Create(Domain.Models.Truck obj)
         {
-            if (obj.IdModel == 1 || obj.IdModel == 2)
-                return (Return.error, ResourcesCrossCuting.msgModeloDeveSerFHouFM);
+            if (obj.IdModel != 1 && obj.IdModel != 2)
+                return (Return.error, ResourcesCrossCuting.msgModel);
 
-            if (obj.YearFabrication < DateTime.Today.Year || obj.YearFabrication > DateTime.Today.Year)
-                return (Return.error, ResourcesCrossCuting.msgAnoFabricacaoDeveSerAnoAtual);
+            if (obj.YearFabrication != DateTime.Today.Year)
+                return (Return.error, ResourcesCrossCuting.msgFabricationYear);
 
-            if (obj.YearModel < DateTime.Today.Year)
-                return (Return.error, ResourcesCrossCuting.msgAnoModeloDeveSerAnoAtualOuSubSequente);
+            if (obj.YearModel < DateTime.Today.Year || obj.YearModel > DateTime.Today.Year + 1)
+                return (Return.error, ResourcesCrossCuting.msgModelYear);
 
             await _truckRepository.Create(obj);
             return (Return.added, "Ok");
@@ -53,9 +53,14 @@ namespace Truck.Application.Services
             if (_obj == null)
                 return (Return.error, ResourcesCrossCuting.msgRegisterNotFound);
 
+            if (obj.IdModel != 1 && obj.IdModel != 2)
+                return (Return.error, ResourcesCrossCuting.msgModel);
+
+            if (obj.YearModel < obj.YearFabrication || obj.YearModel > obj.YearFabrication + 1)
+                return (Return.error, ResourcesCrossCuting.msgModelYear);
+
             _obj.Description = obj.Description;
             _obj.IdModel = obj.IdModel;
-            _obj.YearFabrication = obj.YearFabrication;
             _obj.YearModel = obj.YearModel;
 
             await _truckRepository.Update(_obj);

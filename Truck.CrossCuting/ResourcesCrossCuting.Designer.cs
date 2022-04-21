@@ -61,20 +61,11 @@ namespace Truck.CrossCuting {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ano Fabricação deve ser ano atual.
+        ///   Looks up a localized string similar to Fabrication Year should be current year.
         /// </summary>
-        public static string msgAnoFabricacaoDeveSerAnoAtual {
+        public static string msgFabricationYear {
             get {
-                return ResourceManager.GetString("msgAnoFabricacaoDeveSerAnoAtual", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ano Modelo deve ser ano atual ou subSequente.
-        /// </summary>
-        public static string msgAnoModeloDeveSerAnoAtualOuSubSequente {
-            get {
-                return ResourceManager.GetString("msgAnoModeloDeveSerAnoAtualOuSubSequente", resourceCulture);
+                return ResourceManager.GetString("msgFabricationYear", resourceCulture);
             }
         }
         
@@ -88,11 +79,20 @@ namespace Truck.CrossCuting {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Modelo deve der &quot;FH&quot; ou &quot;FM&quot;.
+        ///   Looks up a localized string similar to Model should be &quot;FH&quot; or &quot;FM&quot;.
         /// </summary>
-        public static string msgModeloDeveSerFHouFM {
+        public static string msgModel {
             get {
-                return ResourceManager.GetString("msgModeloDeveSerFHouFM", resourceCulture);
+                return ResourceManager.GetString("msgModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model Year should be current year or subsequent.
+        /// </summary>
+        public static string msgModelYear {
+            get {
+                return ResourceManager.GetString("msgModelYear", resourceCulture);
             }
         }
         

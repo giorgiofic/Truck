@@ -21,13 +21,16 @@ namespace Truck.Data.Repository
         public async Task<IEnumerable<Domain.Models.Truck>> Get()
         {
             return await _context.Truck
+                            .Include(p => p.ModelTruck)
                             .OrderBy(p => p.Description)
                             .ToListAsync();
         }
 
         public async Task<Domain.Models.Truck> Get(int id)
         {
-            var user = await _context.Truck.FindAsync(id);
+            var user = await _context.Truck
+                                .Include(p => p.ModelTruck)
+                                .FirstOrDefaultAsync(p => p.IdTruck == id);
             return user;
         }
 

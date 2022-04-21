@@ -1,0 +1,39 @@
+﻿@{
+    if (ViewBag.StatusRecord != null)
+    {
+        switch ((Truck.CrossCuting.Enum.Return)ViewBag.StatusRecord)
+        {
+            case Truck.CrossCuting.Enum.Return.added:
+                <div class="alert alert-success" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Added Success!</strong>
+                </div>
+                break;
+            case Truck.CrossCuting.Enum.Return.changed:
+                <div class="alert alert-success" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Change Success!</strong>
+                </div>
+                break;
+            case Truck.CrossCuting.Enum.Return.deleted:
+                <div class="alert alert-success" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Deleted Success!</strong>
+                </div>
+                break;
+        }
+    }
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+
+    $(document).ready(function () {
+        if ('@ViewBag.StatusRecord' != '') {
+            $(".alert").delay(4000).slideUp(200, function () {
+                $(this).alert('close');
+            });
+        }
+    });
+
+</script>

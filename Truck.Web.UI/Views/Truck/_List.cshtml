@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Truck.Domain.Models.Truck>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().ModelTruck.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().YearFabrication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().YearModel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelTruck.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearFabrication)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearModel)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdTruck">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdTruck">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+@Html.Raw("(Page: " + ViewBag.page + " of " + ViewBag.totalPages + ")")
+@Html.Raw("(Total rows: " + ViewBag.countRowns + ")")
+@{
+    if (ViewBag.page > 1)
+    {
+        ViewBag.pagePrev = ViewBag.page - 1;
+
+        <a data-ajax="true"
+           data-ajax-loading="#divloading"
+           data-ajax-mode="replace"
+           data-ajax-update="#resultList"
+           href='@Url.Action("Get")?pageNumber=@ViewBag.pagePrev'>Prev</a>
+    }
+
+    if (ViewBag.page < ViewBag.totalPages)
+    {
+        ViewBag.pageNext = ViewBag.page + 1;
+
+        <a data-ajax="true"
+           data-ajax-loading="#divloading"
+           data-ajax-mode="replace"
+           data-ajax-update="#resultList"
+           href='@Url.Action("Get")?pageNumber=@ViewBag.pageNext'>Next</a>
+    }
+}
