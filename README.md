@@ -19,5 +19,6 @@ Usuário poderá fazer no cadastro de caminhão:
 * Excluir;
 
 Obs.1: Ao executar (F5), o sistema já cria o banco de dados e faz o seed.
+
 Obs.2: Para executar os testes unitários deve digitar o comando "dotnet test TruckTests" no Package Manager Console ou ir em TestExplorer e "Run All".
 
