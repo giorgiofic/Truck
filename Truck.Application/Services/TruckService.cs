@@ -48,16 +48,16 @@ namespace Truck.Application.Services
 
         public async Task<(Return status, string description)> Update(Domain.Models.Truck obj)
         {
-            var _obj = await _truckRepository.Get(obj.IdTruck);
-
-            if (_obj == null)
-                return (Return.error, ResourcesCrossCuting.msgRegisterNotFound);
-
             if (obj.IdModel != 1 && obj.IdModel != 2)
                 return (Return.error, ResourcesCrossCuting.msgModel);
 
             if (obj.YearModel < obj.YearFabrication || obj.YearModel > obj.YearFabrication + 1)
                 return (Return.error, ResourcesCrossCuting.msgModelYear);
+
+            var _obj = await _truckRepository.Get(obj.IdTruck);
+
+            if (_obj == null)
+                return (Return.error, ResourcesCrossCuting.msgRegisterNotFound);
 
             _obj.Description = obj.Description;
             _obj.IdModel = obj.IdModel;
